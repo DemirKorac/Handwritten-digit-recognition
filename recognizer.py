@@ -13,13 +13,13 @@ from sklearn.tree import DecisionTreeClassifier
 number = int(input('Enter the order number of the number you want from the MNIST database: '))
 
 #importing the dataset as a matrix (in the database it is given as cell inputs of the intensity values of pixels of the 28x28 images)
-data=pd.read_csv("train.csv").as_matrix()
+data=pd.read_csv("train.csv").values
 
 #creating an empty classifier
 clf=DecisionTreeClassifier()
 
 #Since the dataset contains 42 000 rows and 785 columns we will take the first 21 000 rows for the training set
-#starting from 0 and taking 21000 rows without the first column because it contains the order numbers 
+#starting from 0 and taking 21000 rows without the first column because it contains the order numbers
 traindata=data[0:21000,1:]
 
 #Here we are taking the first column because we need it for the data labels
@@ -31,7 +31,7 @@ clf.fit(traindata,train_label)
 #Here we are taking the remaining part of the dataset to use as test data and taking only the first column
 testdata=data [21000:,1:]
 
-#Here we are taking the actual label of the remainder of the dataset to compare to our programs predictions 
+#Here we are taking the actual label of the remainder of the dataset to compare to our programs predictions
 #We are taking only the label column
 actual_label=data[21000:,0]
 
@@ -54,7 +54,7 @@ pt.show()
 print ("The predicted digit is =", clf.predict( [testdata[number]]))
 '''
 uncomment part of the code given below to see the program accuracy on the dataset
-if you want to see it being calculated, insert an indentation in front of the 
+if you want to see it being calculated, insert an indentation in front of the
 print line so it lines up with the for loop
 
 CODE:
