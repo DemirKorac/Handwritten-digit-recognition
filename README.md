@@ -1,2 +1,2 @@
 # Handwritten-digit-recognition
-Machine learning school project
+Recognition of handwritten digits using Decision Tree Classifiers
